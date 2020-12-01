@@ -1,0 +1,13 @@
+.responsive {
+    width: 40%;
+    height: auto;
+    max-height:30rem;
+}
+.imgDiv{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.responsive:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
