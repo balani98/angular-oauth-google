@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  developement:false,
+  development:false,
   appRoot:'https://flask-google-oauth-api.herokuapp.com/'
 };
