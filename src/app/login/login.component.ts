@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialAuthService, SocialUser } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  appRoot=environment.appRoot;
   constructor(private http:HttpClient,
               private router:Router,
               private authService: SocialAuthService
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
   }
   login(formObject){
-      this.http.post('http://localhost:5000/login',formObject).subscribe((res)=>{
+      this.http.post(`${this.appRoot}/login`,formObject).subscribe((res)=>{
         localStorage.setItem('Authorization',`Bearer ${res['token']}`)
         if(res['success']==true)
           this.router.navigate(['home']);

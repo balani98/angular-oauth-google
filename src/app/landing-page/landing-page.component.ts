@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnectionService } from '../file/connection.service';
-
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  
+  appRoot=environment.appRoot;
   selectedFile : File=null;
   filename:string;
  constructor(private http:HttpClient,private router:Router,private _service:ConnectionService){}
@@ -21,7 +21,7 @@ export class LandingPageComponent implements OnInit {
    const fd = new FormData();
   
    fd.append('image',this.selectedFile,this.selectedFile.name)
-   this.http.post<any>('http://localhost:5000/uploader',fd).subscribe((res:any)=>{
+   this.http.post<any>(`${this.appRoot}/uploader`,fd).subscribe((res:any)=>{
        this.filename=res.filename;
      //  this._service.file.next(this.filename);
        this.router.navigate(['file'],{ state: { example: this.filename }} );
