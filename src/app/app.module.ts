@@ -38,6 +38,7 @@ import { SafeUrlPipe } from './pipes/safeurl.pipe';
       useValue: {
         autoLogin: false,
         providers: [
+          ConnectionService,
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(

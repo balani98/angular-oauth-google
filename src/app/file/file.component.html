@@ -1,5 +1,5 @@
 <h5>File Name:</h5>
 <p>{{filename}}</p>
 <div class="imgDiv">
-    <img src="{{basePath+filename}}" class="responsive" />
+    <img [src]="basePath+filename|safeurl" class="responsive" />
 </div>
