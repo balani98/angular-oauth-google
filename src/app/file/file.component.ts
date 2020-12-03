@@ -14,7 +14,7 @@ export class FileComponent implements OnInit {
   constructor(private router:Router,private route:ActivatedRoute,private _service:ConnectionService) { 
     this.filename=this.router.getCurrentNavigation().extras.state.example; 
   }
-  basePath :string="http://192.168.43.15:8081";
+  basePath :string="/http://192.168.43.15:8081/";
   ngOnInit(): void {
   
   
