@@ -33,12 +33,13 @@ import { SafeUrlPipe } from './pipes/safeurl.pipe';
     SocialLoginModule
   ],
   providers: [
+    ConnectionService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
         providers: [
-          ConnectionService,
+          
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
